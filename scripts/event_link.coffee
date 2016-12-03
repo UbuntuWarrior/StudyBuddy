@@ -34,7 +34,7 @@ module.exports = (robot) ->
   robot.hear /Mail|mail/,(res) ->
     res.send "Hier der Zugriff auf dein Mail-Konto: \n https://maill.hs-hannover.de/owa/#path=/mail"
 
-  robot.hear /bafög(.*)||Bafög(.*)/,(res) ->
+  robot.hear /Bafög(.*)/,(res) ->
     trigger2 = res.match[1]
     
     if trigger2 is "formulare"
@@ -51,7 +51,7 @@ module.exports = (robot) ->
   robot.hear /asta|Asta/, (res) ->
     res.send "Hier die Website der Asta: \n https://www.astra-hsh.de"
 
-  robot.hear /Fakultät (.*)||fakultät (.*)/,(res) ->
+  robot.hear /Fakultät (.*)/,(res) ->
     trigger3 = res.match[1]
 
     if trigger3 is "1"
