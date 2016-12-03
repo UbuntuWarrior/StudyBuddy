@@ -10,11 +10,15 @@
 
 module.exports = (robot) ->
 
-  robot.hear /alle veranstaltungen/, (res) ->
+  events = ['03.12.2016 - Hackday', '03.12.2016 - Gemeinsam Gestalten Neues Sitzobjekt für Linden', '06.12.2016 - Bewertung von Learning Outcomes', '14.12.2016 - Mittelstand 4.0-Regionalkonferenz']
+
+  robot.hear /alle veranstaltungen|alle Veranstaltungen/, (res) ->
     res.send "Hier sind alle Veranstaltungen: \n 03.12.2016 - Hackday \n 03.12.2016 - Gemeinsam Gestalten Neues Sitzobjekt für Linden \n 06.12.2016 - Bewertung von Learning Outcomes \n 14.12.2016 - Mittelstand 4.0-Regionalkonferenz"
 
   robot.hear /heutige veranstaltungen/, (res) ->
     res.send "Heute noch nichts vor? Wie wäre es mit einer dieser Veranstaltungen? \n 03.12.2016 - Hackday \n 03.12.2016 - Gemeinsam Gestalten Neues Sitzobjekt für Linden"
+
+  
 
   #
   # robot.respond /open the (.*) doors/i, (res) ->

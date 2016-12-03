@@ -25,7 +25,7 @@ module.exports = (robot) ->
   robot.hear /moodle/, (res) ->
     res.send "Hier ist die Anmeldeseite: \n https://moodle.hs-hannover.de/"
   
-  robot.hear /Druckguthaben||Druckkonto/, (res) ->
+  robot.hear /Druckguthaben|Druckkonto/, (res) ->
     res.send "Hier kannst Du Dein Guthaben abrufen: \n https://student.it.hs-hannover.de/ "
 
   robot.hear /Prüfungsergebnisse/,(res) ->
