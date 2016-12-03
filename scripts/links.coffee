@@ -10,7 +10,7 @@
 
 module.exports = (robot) ->
 
-  robot.hear /(.*) lernen/, (res) ->
+  robot.hear /ich möchte (.*) lernen/, (res) ->
     trigger = res.match[1]
 
     if trigger is "Java"
