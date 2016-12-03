@@ -20,36 +20,36 @@ module.exports = (robot) ->
       res.send "https://www.codecademy.com/learn/python"
 
   robot.hear /loncapa|Loncapa/, (res) ->
-    res.send "Hier ist die Anmeldeseite: \n https://loncapa.hs-hannover.de/adm/roles"
+    res.send "Hier ist die Anmeldeseite: \n https://loncpa.hs-hannover.de/adm/roles"
 
   robot.hear /moodle|Moodle/, (res) ->
-    res.send "Hier ist die Anmeldeseite: \n https://moodle.hs-hannover.de/"
+    res.send "Hier ist die Anmeldeseite: \n https://modle.hs-hannover.de/"
   
-  robot.hear /Druckguthaben|Druckkonto/, (res) ->
+  robot.hear /Druckguthaben|Druckkonto|druckguthaben|druckkonto/, (res) ->
     res.send "Hier kannst Du Dein Guthaben abrufen: \n https://student.it.hs-hannover.de/ "
 
-  robot.hear /Prüfungsergebnisse/,(res) ->
+  robot.hear /Prüfungsergebnisse|prüfungsergebnisse/,(res) ->
     res.send "Hier kannst Du Deine Ergbenisse einsehen: \n https://qispos.fh-hannover.de/qisserver/rds?state=user&type=0 "
   
-  robot.hear /Mail/,(res) ->
-    res.send "Hier der Zugriff auf dein Mail-Konto: \n https://mail.hs-hannover.de/owa/#path=/mail"
+  robot.hear /Mail|mail/,(res) ->
+    res.send "Hier der Zugriff auf dein Mail-Konto: \n https://maill.hs-hannover.de/owa/#path=/mail"
 
-  robot.hear /Bafög(.*)/,(res) ->
+  robot.hear /Bafög|bafög(.*)/,(res) ->
     trigger = res.match[1]
     
     if trigger is "formulare"
-      res.send "Hier erhälst Du Infos zu den Formularen: \n https://www.bafög.de/de/alle-antragsformulare-432.php \n http://www.bafoeg-rechner.de/FAQ/antragstellung.php"
+      res.send "Hier erhälst Du Infos zu den Formularen: \n https://www.bafoeg.de/de/alle-antragsformulare-432.php \n http://www.bafoeeg-rechner.de/FAQ/antragstellung.php"
     if trigger is "rechner"
       res.send "Hier kannst du Dein Bafög berechnen lassen \n https://www.bafoeg-rechner.de/Rechner/"
 
-  robot.hear /Studentenwerk/,(res) ->
-    res.send "Hier die Website des Studentenwerk Hannover: \n http://www.studentenwerk-hannover.de/"
+  robot.hear /studentenwerk|Studentenwerk/,(res) ->
+    res.send "Hier die Website des Studentenwerk Hannover: \n http://www.studentenwrk-hannover.de/"
 
-  robot.hear /Mathe/, (res) ->  
-    res.send "Essentials: \n https://www.wolframalpha.com/ \n http://www.mathebibel.de \n http://www.frustfrei-lernen.de/mathematik/nachhilfe-in-mathematik.html"
+  robot.hear /mathe|Mathe/, (res) ->  
+    res.send "Essentials: \n https://www.wolframalpha.com/ \n http://www.matebibel.de \n http://www.frustfrei-lernen.de/matematik/nachhilfe-in-matematik.html"
   
   robot.hear /asta|Asta/, (res) ->
-    res.send "Hier die Website der Asta: \n https://www.asta-hsh.de"
+    res.send "Hier die Website der Asta: \n https://www.astra-hsh.de"
 
   #
   # robot.respond /open the (.*) doors/i, (res) ->
