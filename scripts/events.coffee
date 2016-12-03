@@ -10,8 +10,33 @@
 
 module.exports = (robot) ->
 
-  # robot.hear /badger/i, (res) ->
-  #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
+  robot.hear /veranstaltung/, (res) ->
+
+    events = [
+        "January": [
+          [
+            "title": "Hackday",
+            "date": "20.01.2017"
+          ],
+          [
+            "title": "Studikino",
+            "date": "22.01.2017"
+          ]
+        ],
+        "February": [
+          [
+            "title": "Hackday",
+            "date": "20.01.2017"
+          ],
+          [
+            "title": "Studikino",
+            "date": "22.01.2017"
+          ]
+        ]
+      ]
+
+    res.send "Hackday am 20.01.2017 \n Studikino am 22.01.2017 \n Blutspende am 03.02.2017 \n"
+
   #
   # robot.respond /open the (.*) doors/i, (res) ->
   #   doorType = res.match[1]
