@@ -45,7 +45,8 @@ module.exports = (robot) ->
   robot.hear /Studentenwerk/,(res) ->
     res.send "Hier die Website des Studentenwerk Hannover: \n http://www.studentenwerk-hannover.de/"
 
-
+  robot.hear /Mathe/, (res) ->  
+    res.send "Essentials: \n https://www.wolframalpha.com/ \n http://www.mathebibel.de \n http://www.frustfrei-lernen.de/mathematik/nachhilfe-in-mathematik.html"
 
 
   #
