@@ -19,10 +19,10 @@ module.exports = (robot) ->
     if trigger is "Python"
       res.send "https://www.codecademy.com/learn/python"
 
-  robot.hear /loncapa/, (res) ->
+  robot.hear /loncapa|Loncapa/, (res) ->
     res.send "Hier ist die Anmeldeseite: \n https://loncapa.hs-hannover.de/adm/roles"
 
-  robot.hear /moodle/, (res) ->
+  robot.hear /moodle|Moodle/, (res) ->
     res.send "Hier ist die Anmeldeseite: \n https://moodle.hs-hannover.de/"
   
   robot.hear /Druckguthaben|Druckkonto/, (res) ->
@@ -38,7 +38,7 @@ module.exports = (robot) ->
     trigger = res.match[1]
     
     if trigger is "formulare"
-      res.send "Hier erhälst Du die Formulare: \n https://www.bafög.de/de/alle-antragsformulare-432.php"
+      res.send "Hier erhälst Du Infos zu den Formularen: \n https://www.bafög.de/de/alle-antragsformulare-432.php \n http://www.bafoeg-rechner.de/FAQ/antragstellung.php"
     if trigger is "rechner"
       res.send "Hier kannst du Dein Bafög berechnen lassen \n https://www.bafoeg-rechner.de/Rechner/"
 
@@ -47,7 +47,9 @@ module.exports = (robot) ->
 
   robot.hear /Mathe/, (res) ->  
     res.send "Essentials: \n https://www.wolframalpha.com/ \n http://www.mathebibel.de \n http://www.frustfrei-lernen.de/mathematik/nachhilfe-in-mathematik.html"
-
+  
+  robot.hear /asta|Asta/, (res) ->
+    res.send "Hier die Website der Asta: \n https://www.asta-hsh.de"
 
   #
   # robot.respond /open the (.*) doors/i, (res) ->
