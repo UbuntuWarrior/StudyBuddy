@@ -1,6 +1,6 @@
 module.exports = (robot) ->
 
-    robot.hear /(.*) essen/, (res) ->
+    robot.hear /(.*) zu essen/, (res) ->
         day = res.match[1]
         
         days = [
