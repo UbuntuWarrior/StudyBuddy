@@ -10,9 +10,20 @@
 
 module.exports = (robot) ->
 
+  exams = [
+    {"date":"17.01.2017", "title":"Mathematik I"},
+    {"date":"19.01.2017", "title":"Grundlagen der Informatik"},
+    {"date":"25.01.2017", "title":"Programmieren I"}
+  ]
+  
+  robot.brain.set 'matrikelnumber', 0
+  
   events = ['03.12.2016 - Hackday', '03.12.2016 - Gemeinsam Gestalten Neues Sitzobjekt für Linden', '06.12.2016 - Bewertung von Learning Outcomes', '14.12.2016 - Mittelstand 4.0-Regionalkonferenz']
 
   robot.hear /alle veranstaltungen|alle Veranstaltungen/, (res) ->
+    for month in newEvent
+      console.log(month)
+
     res.send "Hier sind alle Veranstaltungen: \n 03.12.2016 - Hackday \n 03.12.2016 - Gemeinsam Gestalten Neues Sitzobjekt für Linden \n 06.12.2016 - Bewertung von Learning Outcomes \n 14.12.2016 - Mittelstand 4.0-Regionalkonferenz"
 
   robot.hear /heutige veranstaltungen|heutige Veranstaltungen/, (res) ->
@@ -20,6 +31,22 @@ module.exports = (robot) ->
 
   robot.hear /irgendeine veranstaltung|irgendeine Veranstaltung/, (res) ->
     res.send res.random events
+
+  robot.hear /prüfungen|Prüfungen|Prüfungstermine|prüfungstermine/, (res) ->
+    if robot.brain.get('matrikelnumber') is 0
+      res.send "Hey, bevor ich das weiß, benötige ich deine Matrikelnummer!"
+    else
+      response = ''
+
+      for date in exams
+        response = response + date.date + ' ' + date.title + '\n'
+
+      res.send response
+
+  robot.hear /matrikelnummer ist (.*)|Matrikelnummer ist (.*)/, (res) ->
+    mtn = res.match[1]
+    robot.brain.set 'matrikelnumber', mtn
+    res.send "Danke, ich habe deine Matrikelnummer gespeichert."
 
   #
   # robot.respond /open the (.*) doors/i, (res) ->
