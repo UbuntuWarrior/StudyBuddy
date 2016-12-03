@@ -1,7 +1,8 @@
 module.exports = (robot) ->
 
-    robot.hear /(.*) zu essen/, (res) ->
+    robot.hear /was gibt es (.*) zu essen/, (res) ->
         day = res.match[1]
+        console.log(day)
         
         days = [
             Monday = [
