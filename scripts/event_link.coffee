@@ -11,7 +11,7 @@
 module.exports = (robot) ->
 
   robot.hear /(.*) lernen/, (res) ->
-    trigger = res.match[0]
+    trigger = res.match[1]
 
     if trigger is "Java"
       res.send "https://www.codecademy.com/learn/learn-java \n http://openbook.rheinwerk-verlag.de/javainsel/"
