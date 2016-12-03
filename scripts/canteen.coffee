@@ -36,10 +36,11 @@ module.exports = (robot) ->
 
         for i in [0...5]
             if dayscheck[i].search(day) isnt -1
-                res.send days[i]
+                res.send days[i][0] + ' ' + days[i][1]
             else if chksm is 4
                 res.send "Für wann möchtest du den Mensaplan haben?"
             else
                 chksm = chksm + 1
+        
             
          
