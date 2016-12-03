@@ -15,10 +15,11 @@ module.exports = (robot) ->
   robot.hear /alle veranstaltungen|alle Veranstaltungen/, (res) ->
     res.send "Hier sind alle Veranstaltungen: \n 03.12.2016 - Hackday \n 03.12.2016 - Gemeinsam Gestalten Neues Sitzobjekt für Linden \n 06.12.2016 - Bewertung von Learning Outcomes \n 14.12.2016 - Mittelstand 4.0-Regionalkonferenz"
 
-  robot.hear /heutige veranstaltungen/, (res) ->
+  robot.hear /heutige veranstaltungen|heutige Veranstaltungen/, (res) ->
     res.send "Heute noch nichts vor? Wie wäre es mit einer dieser Veranstaltungen? \n 03.12.2016 - Hackday \n 03.12.2016 - Gemeinsam Gestalten Neues Sitzobjekt für Linden"
 
-  
+  robot.hear /irgendeine veranstaltung|irgendeine Veranstaltung/, (res) ->
+    res.send res.random events
 
   #
   # robot.respond /open the (.*) doors/i, (res) ->
