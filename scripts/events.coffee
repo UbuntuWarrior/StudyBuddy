@@ -9,22 +9,27 @@
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
 module.exports = (robot) ->
+  robot.brain.set 'matrikelnumber', 0
+
+  events = [
+      {"month":"January", "date":"03.12.2016", "title": "Hackday"},
+      {"month":"January", "date":"03.12.2016", "title": "Gemeinsam Gestalten Neues Sitzobjekt für Linden"},
+      {"month":"January", "date":"06.12.2016", "title": "Bewertung von Learning Outcomes"},
+      {"month":"January", "date":"14.12.2016", "title": "Mittelstand 4.0-Regionalkonferenz"}
+  ]
 
   exams = [
     {"date":"17.01.2017", "title":"Mathematik I"},
     {"date":"19.01.2017", "title":"Grundlagen der Informatik"},
     {"date":"25.01.2017", "title":"Programmieren I"}
   ]
-  
-  robot.brain.set 'matrikelnumber', 0
-  
-  events = ['03.12.2016 - Hackday', '03.12.2016 - Gemeinsam Gestalten Neues Sitzobjekt für Linden', '06.12.2016 - Bewertung von Learning Outcomes', '14.12.2016 - Mittelstand 4.0-Regionalkonferenz']
 
   robot.hear /alle veranstaltungen|alle Veranstaltungen/, (res) ->
-    for month in newEvent
-      console.log(month)
+    response = 'Hier sind alle Veranstaltungen: \n'
+    for event in events
+      response = response + event.date + ' - ' + event.title + '\n'
 
-    res.send "Hier sind alle Veranstaltungen: \n 03.12.2016 - Hackday \n 03.12.2016 - Gemeinsam Gestalten Neues Sitzobjekt für Linden \n 06.12.2016 - Bewertung von Learning Outcomes \n 14.12.2016 - Mittelstand 4.0-Regionalkonferenz"
+    res.send response
 
   robot.hear /heutige veranstaltungen|heutige Veranstaltungen/, (res) ->
     res.send "Heute noch nichts vor? Wie wäre es mit einer dieser Veranstaltungen? \n 03.12.2016 - Hackday \n 03.12.2016 - Gemeinsam Gestalten Neues Sitzobjekt für Linden"
@@ -38,8 +43,8 @@ module.exports = (robot) ->
     else
       response = ''
 
-      for date in exams
-        response = response + date.date + ' ' + date.title + '\n'
+      for event in exams
+        response = response + event.date + ' - ' + event.title + '\n'
 
       res.send response
 
