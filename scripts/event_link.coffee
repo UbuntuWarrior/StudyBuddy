@@ -37,7 +37,7 @@ module.exports = (robot) ->
   robot.hear /Bafög(.*)/,(res) ->
     trigger2 = res.match[1]
     
-    if trigger2 is "formulare|formularen"
+    if trigger2 is "formulare"|"formularen"
       res.send "Hier erhälst Du Infos zu den Formularen: \n https://www.bafoeg.de/de/alle-antragsformulare-432.php \n http://www.bafoeeg-rechner.de/FAQ/antragstellung.php"
     if trigger2 is "rechner"
       res.send "Hier kannst du Dein Bafög berechnen lassen \n https://www.bafoeg-rechner.de/Rechner/"
