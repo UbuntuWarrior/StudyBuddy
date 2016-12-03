@@ -10,16 +10,46 @@
 
 module.exports = (robot) ->
 
-  events = ['03.12.2016 - Hackday', '03.12.2016 - Gemeinsam Gestalten Neues Sitzobjekt für Linden', '06.12.2016 - Bewertung von Learning Outcomes', '14.12.2016 - Mittelstand 4.0-Regionalkonferenz']
+  robot.hear /(.*) lernen/, (res) ->
+    trigger = res.match[1]
 
-  robot.hear /alle veranstaltungen|alle Veranstaltungen/, (res) ->
-    res.send "Hier sind alle Veranstaltungen: \n 03.12.2016 - Hackday \n 03.12.2016 - Gemeinsam Gestalten Neues Sitzobjekt für Linden \n 06.12.2016 - Bewertung von Learning Outcomes \n 14.12.2016 - Mittelstand 4.0-Regionalkonferenz"
+    if trigger is "Java"
+      res.send "https://www.codecademy.com/learn/learn-java \n http://openbook.rheinwerk-verlag.de/javainsel/"
 
-  robot.hear /heutige veranstaltungen|heutige Veranstaltungen/, (res) ->
-    res.send "Heute noch nichts vor? Wie wäre es mit einer dieser Veranstaltungen? \n 03.12.2016 - Hackday \n 03.12.2016 - Gemeinsam Gestalten Neues Sitzobjekt für Linden"
+    if trigger is "Python"
+      res.send "https://www.codecademy.com/learn/python"
 
-  robot.hear /irgendeine veranstaltung|irgendeine Veranstaltung/, (res) ->
-    res.send res.random events
+  robot.hear /loncapa|Loncapa/, (res) ->
+    res.send "Hier ist die Anmeldeseite: \n https://loncapa.hs-hannover.de/adm/roles"
+
+  robot.hear /moodle|Moodle/, (res) ->
+    res.send "Hier ist die Anmeldeseite: \n https://moodle.hs-hannover.de/"
+  
+  robot.hear /Druckguthaben|Druckkonto/, (res) ->
+    res.send "Hier kannst Du Dein Guthaben abrufen: \n https://student.it.hs-hannover.de/ "
+
+  robot.hear /Prüfungsergebnisse/,(res) ->
+    res.send "Hier kannst Du Deine Ergbenisse einsehen: \n https://qispos.fh-hannover.de/qisserver/rds?state=user&type=0 "
+  
+  robot.hear /Mail/,(res) ->
+    res.send "Hier der Zugriff auf dein Mail-Konto: \n https://mail.hs-hannover.de/owa/#path=/mail"
+
+  robot.hear /Bafög(.*)/,(res) ->
+    trigger = res.match[1]
+    
+    if trigger is "formulare"
+      res.send "Hier erhälst Du Infos zu den Formularen: \n https://www.bafög.de/de/alle-antragsformulare-432.php \n http://www.bafoeg-rechner.de/FAQ/antragstellung.php"
+    if trigger is "rechner"
+      res.send "Hier kannst du Dein Bafög berechnen lassen \n https://www.bafoeg-rechner.de/Rechner/"
+
+  robot.hear /Studentenwerk/,(res) ->
+    res.send "Hier die Website des Studentenwerk Hannover: \n http://www.studentenwerk-hannover.de/"
+
+  robot.hear /Mathe/, (res) ->  
+    res.send "Essentials: \n https://www.wolframalpha.com/ \n http://www.mathebibel.de \n http://www.frustfrei-lernen.de/mathematik/nachhilfe-in-mathematik.html"
+  
+  robot.hear /asta|Asta/, (res) ->
+    res.send "Hier die Website der Asta: \n https://www.asta-hsh.de"
 
   #
   # robot.respond /open the (.*) doors/i, (res) ->
