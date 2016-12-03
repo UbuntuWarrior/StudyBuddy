@@ -11,7 +11,7 @@
 module.exports = (robot) ->
 
   robot.hear /(.*) lernen/, (res) ->
-    trigger = res.match[1]
+    trigger = res.match[0]
 
     if trigger is "Java"
       res.send "https://www.codecademy.com/learn/learn-java \n http://openbook.rheinwerk-verlag.de/javainsel/"
@@ -34,12 +34,12 @@ module.exports = (robot) ->
   robot.hear /Mail|mail/,(res) ->
     res.send "Hier der Zugriff auf dein Mail-Konto: \n https://maill.hs-hannover.de/owa/#path=/mail"
 
-  robot.hear /(Bafög|bafög)(.*)/,(res) ->
-    trigger = res.match[1]
+  robot.hear /bafög(.*)|Bafög(.*)/,(res) ->
+    trigger2 = res.match[1]
     
-    if trigger is "formulare"
+    if trigger2 is "formulare"
       res.send "Hier erhälst Du Infos zu den Formularen: \n https://www.bafoeg.de/de/alle-antragsformulare-432.php \n http://www.bafoeeg-rechner.de/FAQ/antragstellung.php"
-    if trigger is "rechner"
+    if trigger2 is "rechner"
       res.send "Hier kannst du Dein Bafög berechnen lassen \n https://www.bafoeg-rechner.de/Rechner/"
 
   robot.hear /studentenwerk|Studentenwerk/,(res) ->
@@ -51,6 +51,17 @@ module.exports = (robot) ->
   robot.hear /asta|Asta/, (res) ->
     res.send "Hier die Website der Asta: \n https://www.astra-hsh.de"
 
+  robot.hear /Fakultät (.*)|fakultät (.*)/,(res) ->
+    trigger3 = res.match[1]
+
+    if trigger3 is "1"
+     res.send "Hier die Website der Fakultät 1: \n http://f1.hs-hannover.de/startseite/index.html"
+    if trigger3 is "2"
+     res.send "Hier die Website der Fakultät 2: \n http://f2.hs-hannover.de/startseite/index.html"
+    if trigger3 is "3"
+     res.send "Hier die Website der Fakultät 3: \n http://f3.hs-hannover.de/startseite/index.html"
+    if trigger3 is "4"
+     res.send "Hier die Website der Fakultät 4: \n http://f4.hs-hannover.de/startseite/index.html"
   #
   # robot.respond /open the (.*) doors/i, (res) ->
   #   doorType = res.match[1]
