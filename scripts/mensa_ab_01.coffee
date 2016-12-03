@@ -5,42 +5,41 @@ module.exports = (robot) ->
         
         days = [
             Monday = [
-                "Gericht: Test1",
-                " Preis: 1,5",
+                "Gericht: Vegetarische Pizza",
+                "Preis: 1,70€",
             ],
             Tuesday = [
-                "Gericht: Test2",
-                " Preis: 2,5",
+                "Gericht: Hänchen Cordon Bleu",
+                "Preis: 1,70€",
             ],
             Wednesday = [
-                "Gericht: Test3",
-                " Preis:  3,5",
+                "Gericht: Veg. Schnitzel",
+                "Preis:  1,70€",
             ],
             Thursday = [
-                "Gericht: Test4",
-                " Preis:  4,5",
+                "Gericht: Gurkensalat",
+                "Preis:  0,5€",
             ],
             Friday = [
-                "Gericht: Test5",
-                " Preis:  5,5",
+                "Gericht: Petersilienkartoffeln",
+                "Preis:  0,45€",
             ],
         ] 
 
         dayscheck = [
             "Montag",
-            "Dienstag,"
-            "Mittwoch"
+            "Dienstag",
+            "Mittwoch",
             "Donnerstag",
             "Freitag"
         ]
 
-        for i in [0...(dayscheck.length + 1)]
-            #chksm = 0
+        for i in [0...5]
             if dayscheck[i].search(day) isnt -1
                 res.send days[i]
-            #else if chksm is 4
-            #    res.send "Für wann möchtest du den Mensaplan haben?"
-            #else
-            #    chksm = chksm + 1
-            #    res.send chksm
+            else if chksm is 4
+                res.send "Für wann möchtest du den Mensaplan haben?"
+            else
+                chksm = chksm + 1
+            
          
