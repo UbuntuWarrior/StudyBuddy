@@ -20,30 +20,30 @@ module.exports = (robot) ->
       res.send "https://www.codecademy.com/learn/python"
 
   robot.hear /loncapa/, (res) ->
-    re.send "Hier ist die Anmeldeseite: \n https://loncapa.hs-hannover.de/adm/roles"
+    res.send "Hier ist die Anmeldeseite: \n https://loncapa.hs-hannover.de/adm/roles"
 
   robot.hear /moodle/, (res) ->
-    re.send "Hier ist die Anmeldeseite: \n https://moodle.hs-hannover.de/"
+    res.send "Hier ist die Anmeldeseite: \n https://moodle.hs-hannover.de/"
   
-  robot.her /Druckguthaben||Druckkonto/, (res) ->
-    re.send "Hier kannst Du Dein Guthaben abrufen: \n https://student.it.hs-hannover.de/ "
+  robot.hear /Druckguthaben||Druckkonto/, (res) ->
+    res.send "Hier kannst Du Dein Guthaben abrufen: \n https://student.it.hs-hannover.de/ "
 
   robot.hear /Prüfungsergebnisse/,(res) ->
-    re.send "Hier kannst Du Deine Ergbenisse einsehen: \n https://qispos.fh-hannover.de/qisserver/rds?state=user&type=0 "
+    res.send "Hier kannst Du Deine Ergbenisse einsehen: \n https://qispos.fh-hannover.de/qisserver/rds?state=user&type=0 "
   
   robot.hear /Mail/,(res) ->
-    re.send "Hier der Zugriff auf dein Mail-Konto: \n https://mail.hs-hannover.de/owa/#path=/mail"
+    res.send "Hier der Zugriff auf dein Mail-Konto: \n https://mail.hs-hannover.de/owa/#path=/mail"
 
-  robot.her /Bafög(.*)/,(res) ->
+  robot.hear /Bafög(.*)/,(res) ->
     trigger = res.match[1]
     
     if trigger is "formulare"
-      re.send "Hier erhälst Du die Formulare: \n https://www.bafög.de/de/alle-antragsformulare-432.php"
+      res.send "Hier erhälst Du die Formulare: \n https://www.bafög.de/de/alle-antragsformulare-432.php"
     if trigger is "rechner"
-      re.send "Hier kannst du Dein Bafög berechnen lassen \n https://www.bafoeg-rechner.de/Rechner/"
+      res.send "Hier kannst du Dein Bafög berechnen lassen \n https://www.bafoeg-rechner.de/Rechner/"
 
-  robot.her /Studentenwerk/,(res) ->
-    re.send "Hier die Website des Studentenwerk Hannover: \n http://www.studentenwerk-hannover.de/"
+  robot.hear /Studentenwerk/,(res) ->
+    res.send "Hier die Website des Studentenwerk Hannover: \n http://www.studentenwerk-hannover.de/"
 
 
 

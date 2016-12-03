@@ -10,32 +10,11 @@
 
 module.exports = (robot) ->
 
-  robot.hear /veranstaltung/, (res) ->
+  robot.hear /alle veranstaltungen/, (res) ->
+    res.send "Hier sind alle Veranstaltungen: \n 03.12.2016 - Hackday \n 03.12.2016 - Gemeinsam Gestalten Neues Sitzobjekt für Linden \n 06.12.2016 - Bewertung von Learning Outcomes \n 14.12.2016 - Mittelstand 4.0-Regionalkonferenz"
 
-    events = [
-        "January": [
-          [
-            "title": "Hackday",
-            "date": "20.01.2017"
-          ],
-          [
-            "title": "Studikino",
-            "date": "22.01.2017"
-          ]
-        ],
-        "February": [
-          [
-            "title": "Hackday",
-            "date": "20.01.2017"
-          ],
-          [
-            "title": "Studikino",
-            "date": "22.01.2017"
-          ]
-        ]
-      ]
-
-    res.send "Hackday am 20.01.2017 \n Studikino am 22.01.2017 \n Blutspende am 03.02.2017 \n"
+  robot.hear /heutige veranstaltungen/, (res) ->
+    res.send "Heute noch nichts vor? Wie wäre es mit einer dieser Veranstaltungen? \n 03.12.2016 - Hackday \n 03.12.2016 - Gemeinsam Gestalten Neues Sitzobjekt für Linden"
 
   #
   # robot.respond /open the (.*) doors/i, (res) ->
